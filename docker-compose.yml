@@ -1,0 +1,13 @@
+version: "3.1"
+
+services:
+  budget-db:
+    container_name: personal-budget-db
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5435:5432"
+    volumes:
+      - ${POSTGRES_DATA_DIR}:/var/lib/postgresql/data
